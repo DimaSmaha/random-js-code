@@ -37,18 +37,34 @@ const roulette = () => {
 
     datasetArr.forEach((el) => {
       let newEl = 3 * el - rowNum;
-      console.log(rowNum);
       if (newEl > 0 && newEl < 37) {
         receiverArr.push(newEl);
       }
     });
   }
-  const columnOneArr = [];
+  const columnOneArr = []; // 1,4,7,10,13,16,19,22,25,28,31,34
   const columnOneFn = getColumnRows(fullDataset, 1, columnOneArr);
-  const columnTwoArr = [];
+  const columnTwoArr = []; //2,5,8,11,14,17,20,23,26,29,32,35
   const columnTwoFn = getColumnRows(fullDataset, 2, columnTwoArr);
-  const columnThreeArr = [];
+  const columnThreeArr = []; // 3,6,9,12,15,18,21,24,27,30,33,36
   const columnThreeFn = getColumnRows(fullDataset, 3, columnThreeArr);
+
+  function getSixLine(datasetArr, rowNum, receiverArr) {
+    datasetArr.forEach((el) => {
+      if (el > rowNum * 6 - 6 && el < rowNum * 6 + 1) {
+        receiverArr.push(el);
+      }
+    });
+  }
+  const sixLine_1_Arr = []; // 1,2,3,4,5,6
+  const sixLine_2_Arr = []; // 7,8,9,10,11,12
+  const sixLine_3_Arr = []; // 13,14,15,16,17,18
+  const sixLine_4_Arr = []; // 19,20,21,22,23,24
+  const sixLine_5_Arr = []; // 25,26,27,28,29,30
+  const sixLine_6_Arr = []; // 31,32,33,34,35,36
+  for (i = 1; i <= 6; i++) {
+    getSixLine(fullDataset, i, eval(`sixLine_${i}_Arr`));
+  }
 
   console.log(`
   Zero : ${zero}
@@ -64,6 +80,12 @@ const roulette = () => {
   2 to 1 column 1 : ${columnOneArr}
   2 to 1 column 2 : ${columnTwoArr}
   2 to 1 column 3 : ${columnThreeArr}
+  Six line 1 : ${sixLine_1_Arr}
+  Six line 2 : ${sixLine_2_Arr}
+  Six line 3 : ${sixLine_3_Arr}
+  Six line 4 : ${sixLine_4_Arr}
+  Six line 5 : ${sixLine_5_Arr}
+  Six line 6 : ${sixLine_6_Arr}
   `);
 };
 
