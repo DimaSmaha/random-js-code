@@ -56,6 +56,22 @@ const roulette = () => {
       columnThreeArr.push(newEl);
     }
   });
+
+  console.log(`
+  Zero : ${zero}
+  Red : ${redDataset}
+  Black : ${blackDataset}
+  1 to 18 : ${oneToEighteen}
+  19 to 36 : ${nineteenToThirtySix}
+  Odd : ${oddNumbers}
+  Even : ${evenNumbers}
+  1st 12 : ${dozenOne}
+  2nd 12 : ${dozenTwo}
+  3rd 12 : ${dozenThree}
+  2 to 1 column 1 : ${columnOneArr}
+  2 to 1 column 2 : ${columnTwoArr}
+  2 to 1 column 3 : ${columnThreeArr}
+  `);
 };
 
 roulette();
