@@ -85,3 +85,17 @@ execute();
 // Instructions:
 // Create two functions, fetchUser and fetchPosts, each returning a Promise that resolves after 1 second with "User data" and "Posts data", respectively.
 // Use Promise.all to run these functions concurrently and log their results.
+
+const fetchDataVar = new Promise((resolve) => {
+  setTimeout(() => resolve(`Data fetched`), 1500);
+});
+
+function processDataVar(string) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(`Data processed ` + string), 1000);
+  });
+}
+
+Promise.all([fetchDataVar, processDataVar()]).then((el) => console.log(el));
+
+Promise.race([fetchDataVar, processDataVar()]).then((el) => console.log(el));
