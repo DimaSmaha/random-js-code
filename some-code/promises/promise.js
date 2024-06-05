@@ -99,3 +99,39 @@ function processDataVar(string) {
 Promise.all([fetchDataVar, processDataVar()]).then((el) => console.log(el));
 
 Promise.race([fetchDataVar, processDataVar()]).then((el) => console.log(el));
+
+// Task 6: Advanced Task - Fetching Data with Retry Logic
+// Objective: Implement a function that fetches data with retry logic using async/await.
+// Instructions:
+// Create a function fetchWithRetry that accepts a fetchFunction and a retries count.
+// The fetchWithRetry function should try to fetch data using the fetchFunction.
+// If it fails, it should retry the fetch up to the specified retries count.
+// These tasks should provide a comprehensive practice on async/await and Promises in JavaScript.
+
+const somePromise = new Promise((resolve, reject) => {
+  if (1) {
+    reject("Rejected");
+  }
+});
+
+async function fetchWithRetry(promise, retries) {
+  for (i = 0; i < retries; i++) {
+    console.log("retry: " + i);
+
+    await promise.catch((err) => console.error(err));
+  }
+}
+
+async function fetchWithRetry2(promise, retries) {
+  for (i = 0; i < retries; i++) {
+    console.log("retry: " + i);
+    try {
+      console.log(await promise);
+    } catch (err) {
+      console.log(console.error());
+    }
+  }
+}
+
+fetchWithRetry(somePromise, 5);
+fetchWithRetry2(somePromise, 10);
