@@ -1,3 +1,4 @@
+/**1. ************************************************************************************************************/
 function syncGetConsole(url) {
   fetch(url)
     .then((res) => res.json())
@@ -6,6 +7,7 @@ function syncGetConsole(url) {
 }
 syncGetConsole("https://jsonplaceholder.typicode.com/users");
 
+/**2. ************************************************************************************************************/
 function syncGetExactUser(url) {
   fetch(url)
     .then((res) => res.json())
@@ -14,6 +16,7 @@ function syncGetExactUser(url) {
 }
 syncGetExactUser("https://jsonplaceholder.typicode.com/users");
 
+/**3. ************************************************************************************************************/
 function syncGetToVariable(url) {
   return new Promise((res, rej) => {
     fetch(url)
@@ -27,6 +30,7 @@ let user = await syncGetToVariable("https://jsonplaceholder.typicode.com/users")
   .catch((err) => console.log(err));
 console.log(user);
 
+/**4. ************************************************************************************************************/
 function syncGetArray(url) {
   return new Promise((res, rej) => {
     fetch(url)
@@ -39,6 +43,7 @@ syncGetArray("https://jsonplaceholder.typicode.com/users")
   .then((arr) => console.log(arr))
   .catch((err) => console.log(err));
 
+/**5. ************************************************************************************************************/
 async function asyncGet(url) {
   let req = await fetch(url);
   let body = await req.json();
