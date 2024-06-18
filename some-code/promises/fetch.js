@@ -22,9 +22,9 @@ function syncGetToVariable(url) {
       .catch((error) => rej(console.log(error)));
   });
 }
-let user = await syncGetToVariable(
-  "https://jsonplaceholder.typicode.com/users"
-).then((user) => user);
+let user = await syncGetToVariable("https://jsonplaceholder.typicode.com/users")
+  .then((user) => user)
+  .catch((err) => console.log(err));
 console.log(user);
 
 function syncGetArray(url) {
@@ -35,8 +35,16 @@ function syncGetArray(url) {
       .catch((error) => rej(console.log(error)));
   });
 }
-syncGetArray("https://jsonplaceholder.typicode.com/users").then((arr) =>
-  console.log(arr)
-);
+syncGetArray("https://jsonplaceholder.typicode.com/users")
+  .then((arr) => console.log(arr))
+  .catch((err) => console.log(err));
 
-async function asyncGet() {}
+async function asyncGet(url) {
+  let req = await fetch(url);
+  let body = await req.json();
+  return body;
+}
+let firstUser = await asyncGet("https://jsonplaceholder.typicode.com/users")
+  .then((body) => body[0].username)
+  .catch((err) => console.log(err));
+console.log(firstUser);
