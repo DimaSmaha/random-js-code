@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/5/minty/bootstrap.min.css"
+    />
+    <title>Random Profiles Finder</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.mjs" type="module"></script>
+  </head>
+  <body>
+    <nav class="navbar bg-primary mb-3">
+      <div>
+        <a href="#" class="navbar-brand">Regexp Project</a>
+      </div>
+    </nav>
+    <div class="container searchContainer">
+      <div class="search card card-body">
+        <h1>Some Form with validation</h1>
+        <div class="form-group mt-3">
+          <label for="name-input">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name-input"
+            placeholder="Enter Name"
+          />
+          <div class="invalid-feedback" style="color: red">
+            The name should be from 2 to 10 letters, and does not consist digits
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="email-input">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email-input"
+            placeholder="Email"
+          />
+          <div class="invalid-feedback" style="color: red">
+            <p>The email is invalid</p>
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="password-input">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password-input"
+            placeholder="Password"
+          />
+          <div class="invalid-feedback" style="color: red">
+            <p>The password should include:</p>
+            <ul>
+              <li>Minimum 8 to 32 characters</li>
+              <li>One digit</li>
+              <li>One letter</li>
+              <li>One special symbol</li>
+            </ul>
+          </div>
+        </div>
+
+        <button id="button" class="form-control mt-3">Register</button>
+      </div>
+    </div>
+  </body>
+</html>
