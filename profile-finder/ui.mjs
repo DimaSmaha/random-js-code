@@ -43,3 +43,15 @@ export function showEmpty() {
   //   `
   //   );
 }
+
+export function createClearButton() {
+  const clearButtonBox = document.getElementById("clearButtonBox");
+  clearButtonBox.innerHTML = `
+    <button id="clear-button" class="form-control mb-3 mt-3">Clear</button>
+  `;
+}
+
+export function clearContent() {
+  const userProfileEl = document.getElementById("userProfile");
+  userProfileEl.innerHTML = "";
+}

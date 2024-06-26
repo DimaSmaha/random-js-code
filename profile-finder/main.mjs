@@ -1,5 +1,10 @@
 import { searchRandomProfile } from "./user-api.mjs";
-import { showEmpty, showProfile } from "./ui.mjs";
+import {
+  clearContent,
+  createClearButton,
+  showEmpty,
+  showProfile,
+} from "./ui.mjs";
 
 // const searchInput = document.getElementById("profile-input");
 // searchInput.addEventListener("keyup", (e) => {
@@ -28,6 +33,10 @@ searchButton.addEventListener("click", async () => {
     console.log("everything is good");
     showProfile(user);
   }
-});
 
-//Add clear button
+  createClearButton();
+  const clearButton = document.getElementById("clear-button");
+  clearButton.addEventListener("click", async () => {
+    clearContent();
+  });
+});
