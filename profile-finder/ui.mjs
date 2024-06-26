@@ -1,0 +1,19 @@
+export function showProfile(user) {
+  const userProfileEl = document.getElementById("userProfile");
+
+  userProfileEl.innerHTML = `
+  <div class='card card-body mb-3 mt-6'>
+    <div class='row'>
+        <div class='col-md-3'>
+            <img class='img-fluid' src='${user.userImage}' width="200" height="200">
+            <a href='${user.userImage}' target='_blank' class='btn btn-block btn-primary mt-3'>Get Image</a>
+            <br>
+            <span>${user.userFirstName} ${user.userLastName}</span>
+        </div>
+        <div class='col-md-9 mt-3'>
+            <p> The user address is ${user.userPostcode},${user.userCity}. ${user.userCountry} ${user.userState}</p>
+        </div>
+     </div>
+  </div>
+  `;
+}
