@@ -17,3 +17,29 @@ export function showProfile(user) {
   </div>
   `;
 }
+
+export function showEmpty() {
+  const userProfileEl = document.getElementById("userProfile");
+
+  userProfileEl.innerHTML = `
+      <div class='card card-body mb-3 mt-6'>
+      <div class='row'>
+          <div class='col-md-9 mt-3'>
+              <h1>Sorry the user is not found</h1>
+          </div>
+       </div>
+    </div>
+  `;
+  //   userProfileEl.insertAdjacentHTML(
+  //     "afterbegin",
+  //     `
+  //     <div class='card card-body mb-3 mt-6'>
+  //     <div class='row'>
+  //         <div class='col-md-9 mt-3'>
+  //             <h1>Sorry the user is not found</h1>
+  //         </div>
+  //      </div>
+  //   </div>
+  //   `
+  //   );
+}

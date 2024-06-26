@@ -1,5 +1,5 @@
 import { searchRandomProfile } from "./user-api.mjs";
-import { showProfile } from "./ui.mjs";
+import { showEmpty, showProfile } from "./ui.mjs";
 
 // const searchInput = document.getElementById("profile-input");
 // searchInput.addEventListener("keyup", (e) => {
@@ -17,6 +17,7 @@ searchButton.addEventListener("click", async () => {
   let undefinedFlag = true;
   for (const key in user) {
     if (user[key] == undefined) {
+      showEmpty();
       console.log("something is missing");
       undefinedFlag = false;
       break;
