@@ -1,5 +1,5 @@
-function randomBySomeRange(max, min) {
+function randomBySomeRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-console.log(randomBySomeRange(40, 20));
+console.log(randomBySomeRange(20, 40));
