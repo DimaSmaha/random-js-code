@@ -11,6 +11,13 @@ export function changeCity() {
   setLocalStorageValues(cityInput.value, airQualityInput.value);
 }
 
+export function hideModal() {
+  const modal = bootstrap.Modal.getInstance(
+    document.getElementById("exampleModal")
+  );
+  modal.hide();
+}
+
 export function paintUI(data) {
   const location = document.getElementById("location");
   const description = document.getElementById("description");
