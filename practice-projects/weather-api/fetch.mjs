@@ -1,7 +1,5 @@
-export async function fetchData() {
+export async function fetchData(query, aqiFlag) {
   const apiKey = "0d8b0e7f340840fcb3581337242906";
-  const query = "Los Angeles";
-  const aqiFlag = "yes";
 
   const body =
     await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}&aqi=${aqiFlag}

@@ -1,11 +1,14 @@
+import { setLocalStorageValues } from "./localStorage.mjs";
+
 export function changeCity() {
   const cityInput = document.getElementById("city-input");
-  const stateInput = document.getElementById("state-input");
+  const airQualityInput = document.getElementById("airQuality-input");
 
-  if (cityInput.value == "" || stateInput.value == "") {
+  if (cityInput.value == "" || airQualityInput.value == "") {
     cityInput.classList.add("is-invalid");
-    stateInput.classList.add("is-invalid");
+    airQualityInput.classList.add("is-invalid");
   }
+  setLocalStorageValues(cityInput.value, airQualityInput.value);
 }
 
 export function paintUI(data) {
