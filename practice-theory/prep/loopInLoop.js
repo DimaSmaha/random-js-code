@@ -15,16 +15,28 @@
 // }
 // drawingHalfOfChristmasTree();
 
-function drawingHalfOfChristmasTree() {
-  let maxRow = 6;
-  let str = "";
+// function drawingHalfOfChristmasTree() {
+//   let maxRow = 6;
+//   let str = "";
 
-  for (let i = 0; i <= maxRow; i++) {
-    for (let j = 0; j < i; j++) {
-      str += "*";
+//   for (let i = 0; i <= maxRow; i++) {
+//     for (let j = 0; j < i; j++) {
+//       str += "*";
+//     }
+//     console.log(str);
+//     str = "";
+//   }
+// }
+
+function drawingHalfOfChristmasTree() {
+  let starNum = 6;
+  let row = "";
+  for (let i = 0; i < starNum; i++) {
+    for (let ii = 0; ii <= i; ii++) {
+      row += "*";
     }
-    console.log(str);
-    str = "";
+    console.log(row);
+    row = "";
   }
 }
 
