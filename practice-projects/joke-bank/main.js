@@ -1,6 +1,6 @@
 import "./style.css";
-import { Balance, getBalance, increaseBalance } from "./utils/balance";
-import { getJoke, JokeApi } from "./utils/joke";
+import balance from "./utils/balance";
+import joke from "./utils/joke";
 
 document.querySelector("#app").innerHTML = `
   <div>
@@ -21,8 +21,13 @@ document.querySelector("#app").innerHTML = `
 const getJokeButton = document.querySelector("#get-joke");
 const topUpButton = document.querySelector("#top-up-button");
 
+window.onload = function () {
+  balance.renderBalance();
+};
+
 topUpButton.addEventListener("click", () => {
-  increaseBalance();
+  //increase balance
+  balance.increaseBalance();
 });
 
 getJokeButton.addEventListener("click", async () => {
@@ -31,9 +36,12 @@ getJokeButton.addEventListener("click", async () => {
   // get and render joke
   // un disable get joke button
   // decrease balance
-
-  if (getBalance() <= 0) {
-    alert("ffffffff");
+  if (balance.getBalanceValue() <= 0) {
+    alert("Your balance is 0");
+    return;
   }
-  getJoke();
+  joke.disableGetJokeButton();
+  await joke.getJoke();
+  joke.enableGetJokeButton();
+  balance.decreaseBalance();
 });

@@ -11,15 +11,26 @@ const API_URL =
 //   },
 // ];
 
-export class JokeApi {}
+class JokeApi {
+  constructor() {}
 
-export function getJoke() {
-  fetch(API_URL)
-    .then((res) => res.json())
-    .then((json) => {
-      const getJokeText = document.querySelector("#joke-text");
-      getJokeText.innerHTML = json[0].setup;
-      getJokeText.innerHTML += "\n";
-      getJokeText.innerHTML += json[0].punchline;
-    });
+  disableGetJokeButton() {
+    document.querySelector("#get-joke").setAttribute("disabled", true);
+  }
+
+  enableGetJokeButton() {
+    document.querySelector("#get-joke").removeAttribute("disabled");
+  }
+
+  async getJoke() {
+    const res = await fetch(API_URL);
+    const json = await res.json();
+
+    const getJokeText = document.querySelector("#joke-text");
+    getJokeText.innerHTML = json[0].setup;
+    getJokeText.innerHTML += "\n";
+    getJokeText.innerHTML += json[0].punchline;
+  }
 }
+
+export default new JokeApi();

@@ -1,16 +1,32 @@
 // store balance in localStorage by default balance is 10
-export class Balance {}
+class Balance {
+  constructor() {
+    this.balanceValue = 10;
+  }
 
-export function increaseBalance() {
-  const balanceValue = document.querySelector("#balance-value");
-  let balanceNumber = parseInt(balanceValue.innerHTML);
-  balanceNumber++;
+  renderBalance() {
+    if (!localStorage.getItem("currentBalance")) {
+      localStorage.setItem("currentBalance", this.balanceValue);
+    }
+    this.balanceValue = localStorage.getItem("currentBalance");
+    document.querySelector("#balance-value").textContent = this.balanceValue;
+  }
 
-  balanceValue.innerHTML = balanceNumber;
+  getBalanceValue() {
+    return parseInt(document.querySelector("#balance-value").innerHTML);
+  }
+
+  increaseBalance() {
+    this.balanceValue++;
+    localStorage.setItem("currentBalance", this.balanceValue);
+    this.renderBalance();
+  }
+
+  decreaseBalance() {
+    this.balanceValue--;
+    localStorage.setItem("currentBalance", this.balanceValue);
+    this.renderBalance();
+  }
 }
 
-export function getBalance() {
-  const balanceValue = document.querySelector("#balance-value");
-  console.log(parseInt(balanceValue.innerHTML));
-  return parseInt(balanceValue.innerHTML);
-}
+export default new Balance();
