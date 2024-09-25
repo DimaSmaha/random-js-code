@@ -22,14 +22,23 @@ class JokeApi {
     document.querySelector("#get-joke").removeAttribute("disabled");
   }
 
+  clearJokeText() {
+    const getJokeText = document.querySelector("#joke-text");
+    getJokeText.innerHTML = "Loading Joke...";
+  }
+
   async getJoke() {
     const res = await fetch(API_URL);
     const json = await res.json();
+    const formJoke = { setup: json[0].setup, punchline: json[0].punchline };
+    return formJoke;
+  }
 
+  async renderJoke(setup, punchline) {
     const getJokeText = document.querySelector("#joke-text");
-    getJokeText.innerHTML = json[0].setup;
+    getJokeText.innerHTML = setup;
     getJokeText.innerHTML += "\n";
-    getJokeText.innerHTML += json[0].punchline;
+    getJokeText.innerHTML += punchline;
   }
 }
 

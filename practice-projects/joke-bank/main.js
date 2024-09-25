@@ -1,5 +1,6 @@
 import "./style.css";
 import balance from "./utils/balance";
+import image from "./utils/image";
 import joke from "./utils/joke";
 
 document.querySelector("#app").innerHTML = `
@@ -15,6 +16,7 @@ document.querySelector("#app").innerHTML = `
     <p id="joke-text">
       Click "Get Joke" to Get Joke
     </p>
+    <div id="image"></div>
   </div>
 `;
 
@@ -41,7 +43,11 @@ getJokeButton.addEventListener("click", async () => {
     return;
   }
   joke.disableGetJokeButton();
-  await joke.getJoke();
+  joke.clearJokeText();
+  image.clearImage();
+  const jokeText = await joke.getJoke();
+  await joke.renderJoke(jokeText.setup, jokeText.punchline);
   joke.enableGetJokeButton();
   balance.decreaseBalance();
+  await image.renderImage(jokeText.setup, jokeText.punchline);
 });
